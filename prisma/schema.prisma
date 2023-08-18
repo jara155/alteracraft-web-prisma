@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://u13238_AXhu5poAwm:mLK0gaD6NwhMYn%409f7%3D8njDm@mysql-1.de-fra.game.heavynode.net:3306/s13238_jajapl"
+}
+
+model Auth {
+  uuid     String  @id @db.VarChar(100)
+  name     String? @db.VarChar(255)
+  password String? @db.VarChar(255)
+  ip       String? @db.VarChar(100)
+}
+
+model PunishmentHistory {
+  id             Int     @id @default(autoincrement())
+  name           String? @db.VarChar(16)
+  uuid           String? @db.VarChar(35)
+  reason         String? @db.VarChar(100)
+  operator       String? @db.VarChar(16)
+  punishmentType String? @db.VarChar(16)
+  start          String? @db.MediumText
+  end            String? @db.MediumText
+  calculation    String? @db.VarChar(50)
+}
+
+model Punishments {
+  id             Int     @id @default(autoincrement())
+  name           String? @db.VarChar(16)
+  uuid           String? @db.VarChar(35)
+  reason         String? @db.VarChar(100)
+  operator       String? @db.VarChar(16)
+  punishmentType String? @db.VarChar(16)
+  start          String? @db.MediumText
+  end            String? @db.MediumText
+  calculation    String? @db.VarChar(50)
+}
+
+model ServerInfo {
+  info String  @id @default("") @db.VarChar(50)
+  data String? @db.VarChar(50)
+}
